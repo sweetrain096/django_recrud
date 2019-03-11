@@ -1,4 +1,4 @@
-<form action="/boards/create/" method="POST">
+<form action="{% url 'boards:create' %}" method="POST">
     {% csrf_token %}
     <input type="text" name="title"><br>
     <textarea name="content"></textarea>
