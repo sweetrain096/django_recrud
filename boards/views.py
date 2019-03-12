@@ -36,8 +36,10 @@ def new(request):
 
 def detail(request, pk):
     board = Board.objects.get(pk=pk)
+    comments = board.comment_set.all()
     return render(request, 'boards/detail.html', {
-        'board': board
+        'board': board, 
+        'comments' : comments
     })
     
 def delete(request, pk):
