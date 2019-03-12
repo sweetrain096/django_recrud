@@ -81,7 +81,12 @@ def comments_create(request, board_pk):
     return redirect('boards:detail', board.pk)
     # return redirect('boards:detail', comment.board_id)와 동일
 
-
+def comments_delete(request, board_pk, comment_pk):
+    if request.method == 'POST':
+        comment = Comment.objects.get(pk=comment_pk)
+        comment.delete()
+    return redirect('boards:detail', board_pk)
+    
 
 
 
