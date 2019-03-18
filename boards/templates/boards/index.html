@@ -1,3 +1,7 @@
+<!-- 상속을 받는다면 extends가 최상단 위치하기 -->
+{% load static %}
+<!--boards/bh.jpg-->
+<img src="{% static 'bh.jpg' %}">
 <h1>게시판</h1>
 <a href="{% url 'boards:new' %}">글 작성하러가기</a>
 {% for board in boards %}
@@ -5,4 +9,4 @@
     <p>{{ board.title }}</p>
     <a href="{% url 'boards:detail' board.pk %}">글 보기</a>
     <hr>
-{% endfor %} 
+{% endfor %}
