@@ -22,6 +22,7 @@ def new(request):
         board = Board()
         board.title = request.POST.get('title')
         board.content = request.POST.get('content')
+        board.image = request.FILES.get('image')
         board.save()
         return redirect('boards:detail', board.pk)
     else:
@@ -39,7 +40,7 @@ def detail(request, board_pk):
     comments = board.comment_set.all()
     return render(request, 'boards/detail.html', {
         'board': board, 
-        'comments' : comments
+        'comments' : comments,
     })
     
 def delete(request, board_pk):
